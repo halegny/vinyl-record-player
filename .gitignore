@@ -21,3 +21,6 @@ yarn-error.log*
 /public/covers/*
 !/public/audio/.gitkeep
 !/public/covers/.gitkeep
+
+# Local Netlify folder
+.netlify

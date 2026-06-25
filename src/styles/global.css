@@ -843,27 +843,67 @@ body,
 
 /* ---------- Responsive: stack rail above the deck on narrow screens ---------- */
 @media (max-width: 720px) {
+  /* Stack: wordmark text on top, then the records row, then the player. */
   .layout {
     flex-direction: column;
   }
+  /* Take just the space left under the records row (not full height, which would
+     push the player off-screen in this stacked layout). */
+  .main {
+    height: auto;
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  /* Records sit BELOW the fixed wordmark (margin clears it) as a scrollable row.
+     height:auto is critical here: the base rail is height:100% for the desktop
+     side-by-side layout, which would otherwise eat the whole screen on mobile. */
   .rail {
-    flex: 0 0 124px;
+    flex: 0 0 auto;
     width: 100%;
+    height: auto;
+    margin-top: 90px;
   }
   .rail__scroller {
+    height: auto;
     overflow-x: auto;
     overflow-y: hidden;
+    /* Horizontal edge fade instead of the desktop vertical one. */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
   }
   .rail__list {
     flex-direction: row;
-    padding: 14px 42vw;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 4px 20px 12px;
+  }
+  /* No vertical wave on a horizontal row; keep the discs steady and tappable. */
+  .rail__btn {
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
+    width: 78px;
+    padding: 4px;
+  }
+  .rail__disc {
+    width: 74px;
   }
   .rail__meta {
+    display: flex;
+    align-items: center;
+    max-width: 78px;
+  }
+  .rail__title {
+    font-size: 11px;
+    text-align: center;
+  }
+  .rail__artist {
     display: none;
   }
+
   .deck {
-    width: min(92vmin, 64vh);
+    width: min(94vmin, 56vh);
   }
 }
 
