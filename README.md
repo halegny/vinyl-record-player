@@ -8,7 +8,7 @@ color while the track plays.
 
 ![Vinyl, an interactive record player](docs/preview.png)
 
-> **Live demo:** _add your deployment URL here_ · Built by **Hale Gunay**
+> **Live demo:** https://hale-vinyl-record-player.netlify.app · Built by **Hale Gunay**
 
 ## About the media (please read)
 
